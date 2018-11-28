@@ -27,23 +27,21 @@ class Vector:
         """ Returns component-wise sum as a Vector """
         # TODO: Rewrite to accommodate n-dimensional vectors
         # HW (11/28)
-        sum_x = self.x + other.x
-        sum_y = self.y + other.y
-        return Vector(sum_x, sum_y)
-
+        sum_compn = (self.components) + (other.components)
+        return Vector(sum_compn)
     def __mul__(self, other):
         """ Returns dot product """
         # TODO: Rewrite to accomodate n-dimensional vectors
         # HW (11/28)
-        return self.x*other.x + self.y*other.y
+        return (self.components)*(other.components)
 
-    def __rmul__(self, other):
+    def __rmul__(components, other):
         """ Supports (left) scalar multiplication """
-        return Vector(self.x * other, self.y * other)
+        return Vector(self.components * other)
 
     def __neg__(self):
         """ Unary minus support """
-        return Vector(-self.x, -self.y)
+        return Vector(-self.components)
 
     def __sub__(self, other):
         """ Returns component-wise difference as a Vector """
