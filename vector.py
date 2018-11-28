@@ -46,8 +46,9 @@ class Vector:
         return Vector(-self.x, -self.y)
 
     def __sub__(self, other):
-        """ Returns component-wise difference as a Vector """
-        return self + -other
+        sub_x = self.x - other.x 
+        sub_y = self.y - other.y
+        return Vector(sub_x,sub_y)
 
     def pol_angle(self, degrees=True):
         """ Returns the plane-polar angle in degrees unless degrees=False """
