@@ -27,16 +27,14 @@ class Vector:
         """ Returns component-wise sum as a Vector """
         # TODO: Rewrite to accommodate n-dimensional vectors
         # HW (11/28)
-        sum_x = self.x + other.x
-        sum_y = self.y + other.y
-        return Vector(sum_x, sum_y)
+         comp_sums = [sum(pair) for pair in zip(self.components, other.components)]
+         return Vector(*comp_sums)
 
-    def __mul__(self, other):
+     def __mul__(self, other):
         """ Returns dot product """
         # TODO: Rewrite to accomodate n-dimensional vectors
         # HW (11/28)
-        return self.x*other.x + self.y*other.y
-
+         sum([a*b for a,b in zip(self.components, other.components)])
     def __rmul__(self, other):
         """ Supports (left) scalar multiplication """
         return Vector(self.x * other, self.y * other)
